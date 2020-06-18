@@ -1,24 +1,63 @@
-# README
+# EC_TRAINING
+ECサイトを構築するトレーニングリポジトリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 業務フロー
+WIP
 
-Things you may want to cover:
+## テーブル設計
 
-* Ruby version
+### 商品テーブル(products)
+- name
+- price
 
-* System dependencies
+### 在庫テーブル(stocks)
+productsテーブルにquantityカラムを追加してもいいかもしれないが、<br>
+マスタデータとトランザクションデータの意味的な違いも考慮して、テーブルを分けた。<br>
+(マスタを更新しているわけではないのに、レコードにUPDATEが走るのはよろしくないと判断した)
+- product_id
+- quantity
 
-* Configuration
+### カートテーブル(carts)
+id, timestampのみのテーブル。<br>
+user_idカラムを持たない。<br>
+注文確定時にデータクリアされる。
 
-* Database creation
+### カート明細テーブル(cart_details)
+- cart_id
+- product_id
+- quantity
 
-* Database initialization
+### 注文テーブル(orders)
+- user_id
+- order_code
 
-* How to run the test suite
+### 注文明細テーブル(order_details)
+構成はallocatesテーブルと変わらないが、こちらは注文内容を永続的に保持しておくために必要。
+- order_id
+- product_id
+- quantity
 
-* Services (job queues, cache servers, search engines, etc.)
+### 引当テーブル(allocates)
+注文確定でデータ生成され、出荷指示後1発目の在庫受信時にデータクリアされる。<br>
+キャンセル時にもデータクリアされる。<br>
+ライフサイクルは短いが、引当可能数算出ロジックや、出荷指示時に必要。
+- order_id
+- product_id
+- quantity
 
-* Deployment instructions
+### 出荷指示テーブル(shipping_instructions)
+- product_id
+- quantity
 
-* ...
+### 出荷実績テーブル(shipping_results)
+倉庫側への欠品アラートを発報するために必要。
+- product_id
+- quantity
+
+### ユーザーテーブル(users)
+- screen_name
+- email
+
+### ユーザー情報テーブル(user_details)
+- first_name
+- last_name
