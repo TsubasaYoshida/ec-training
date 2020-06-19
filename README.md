@@ -18,9 +18,9 @@ productsテーブルにquantityカラムを追加してもいいかもしれな�
 - quantity
 
 ### カートテーブル(carts)
-id, timestampのみのテーブル。<br>
-user_idカラムを持たない。<br>
+user_idカラムはNULLを許容する(未ログイン状態でもカート機能を使用できる)。<br>
 注文確定時にデータクリアされる。
+- user_id
 
 ### カート明細テーブル(cart_details)
 - cart_id
