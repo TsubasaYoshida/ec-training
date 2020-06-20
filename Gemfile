@@ -29,6 +29,8 @@ group :development do
   gem 'i18n_generators'
   gem 'spring-commands-rspec'
   gem 'letter_opener'
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :test do
