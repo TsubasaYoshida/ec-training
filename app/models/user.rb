@@ -7,4 +7,9 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :confirmable
+
+  validates :screen_name,
+            presence: true,
+            length: { maximum: 20 },
+            uniqueness: { case_sensitive: false }
 end
