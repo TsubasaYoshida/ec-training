@@ -31,6 +31,7 @@ group :development do
   gem 'letter_opener'
   gem 'ruby-debug-ide'
   gem 'debase'
+  gem 'html2haml'
 end
 
 group :test do
