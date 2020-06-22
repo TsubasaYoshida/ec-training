@@ -8,8 +8,7 @@ class User < ApplicationRecord
          :rememberable,
          :confirmable
 
-  validates :screen_name,
-            presence: true,
-            length: { maximum: 20 },
-            uniqueness: { case_sensitive: false }
+  validates :screen_name, presence: true
+  validates :screen_name, length: { maximum: 20 }, allow_blank: true
+  validates :screen_name, uniqueness: { case_sensitive: false }, allow_blank: true
 end
