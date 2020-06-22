@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Quantity:
+  = @stock.quantity
+%p
+  %b Product:
+  = @stock.product
+
+= link_to 'Edit', edit_stock_path(@stock)
+\|
+= link_to 'Back', stocks_path
