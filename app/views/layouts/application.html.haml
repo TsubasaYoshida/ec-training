@@ -15,8 +15,10 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      %h1 SHOWCASE
-      = link_to 'ユーザー登録', new_user_registration_path
-      = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    = yield
+    .all-wrapper
+      %header
+        %h1 SHOWCASE
+        = link_to 'ユーザー登録', new_user_registration_path
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      %main
+        = yield

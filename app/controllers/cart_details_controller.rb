@@ -16,11 +16,11 @@ class CartDetailsController < ApplicationController
   def edit; end
 
   def create
-    @cart_detail = CartDetail.new(cart_detail_params)
+    @cart_detail = current_cart.cart_details.build(cart_detail_params)
     if @cart_detail.save
-      redirect_to @cart_detail, notice: "CartDetail was successfully created."
+      redirect_to current_cart, notice: "CartDetail was successfully created."
     else
-      render :new
+      render 'products/show'
     end
   end
 
@@ -44,6 +44,6 @@ class CartDetailsController < ApplicationController
   end
 
   def cart_detail_params
-    params.require(:cart_detail).permit(:cart_id, :product_id, :quantity)
+    params.require(:cart_detail).permit(:product_id, :quantity)
   end
 end

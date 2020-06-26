@@ -1,12 +1,14 @@
-%p#notice= notice
+-# frozen_string_literal: true
 
-%p
-  %b Name:
+.product-title
   = @product.name
-%p
-  %b Price:
-  = @product.price
+.product-price
+  = number_to_currency(@product.price)
 
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+= simple_form_for(:cart_detail, url: cart_details_path) do |f|
+  .form-inputs
+    = f.hidden_field :product_id, value: @product.id
+    = f.input :quantity
+
+  .form-actions
+    = f.button :submit, 'カートに入れる'
