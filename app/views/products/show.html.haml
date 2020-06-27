@@ -6,9 +6,6 @@
   = number_to_currency(@product.price)
 
 = simple_form_for(:cart_detail, url: cart_details_path) do |f|
-  .form-inputs
-    = f.hidden_field :product_id, value: @product.id
-    = f.input :quantity
-
-  .form-actions
-    = f.button :submit, 'カートに入れる'
+  = f.hidden_field :product_id, value: @product.id
+  = f.input :quantity, input_html: { class: 'form-quantity' }
+  = f.button :submit, class: 'add-to-cart-button'

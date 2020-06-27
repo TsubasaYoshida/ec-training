@@ -2,6 +2,7 @@
 
 class CartDetailsController < ApplicationController
   before_action :set_cart_detail, only: %i[show edit update destroy]
+  before_action :set_product, only: :create
 
   def index
     @cart_details = CartDetail.all
@@ -41,6 +42,10 @@ class CartDetailsController < ApplicationController
 
   def set_cart_detail
     @cart_detail = CartDetail.find(params[:id])
+  end
+
+  def set_product
+    @product = Product.find(cart_detail_params[:product_id])
   end
 
   def cart_detail_params

@@ -1,0 +1,12 @@
+.add-to-cart-button {
+  background-color: #FFF;
+  width: 240px;
+  border-color: #e74c3c;
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #e74c3c;
+}

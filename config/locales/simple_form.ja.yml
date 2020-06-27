@@ -1,0 +1,5 @@
+ja:
+  simple_form:
+    labels:
+      cart_detail:
+        quantity: 数量
