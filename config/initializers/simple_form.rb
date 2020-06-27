@@ -19,5 +19,5 @@ SimpleForm.setup do |config|
   config.default_wrapper = :default
   config.browser_validations = false
   config.button_class = :button
-  config.required_by_default = false
+  config.label_text = ->(label, required, explicit_label) { label.to_s }
 end

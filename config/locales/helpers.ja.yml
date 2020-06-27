@@ -2,4 +2,4 @@ ja:
   helpers:
     submit:
       cart_detail:
-        submit: 'カートに入れる'
+        create: 'カートに入れる'
