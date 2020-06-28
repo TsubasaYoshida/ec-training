@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# TODO: cart_idとproduct_idのユニーク制約と、ユニークバリデーション
+
 class CartDetail < ApplicationRecord
   belongs_to :cart
   belongs_to :product

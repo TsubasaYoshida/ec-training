@@ -1,9 +1,17 @@
-%p#notice= notice
+-# frozen_string_literal: true
 
-%p
-  %b User:
-  = @cart.user
+.cart-title
+  ショッピングカート
 
-= link_to 'Edit', edit_cart_path(@cart)
-\|
-= link_to 'Back', carts_path
+- @cart.cart_details.each do |cart_detail|
+  .cart-detail
+    .cart-detail__product-name
+      = link_to cart_detail.product.name, cart_detail.product
+    .cart-detail__product-price
+      = number_to_currency(cart_detail.product.price)
+    .cart-detail__quantity
+      数量: #{cart_detail.quantity}
+
+小計
+.cart-subtotal
+  = number_to_currency(@cart.subtotal)

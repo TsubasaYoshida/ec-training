@@ -2,6 +2,7 @@
 
 class Product < ApplicationRecord
   has_one :stock
+  has_one :cart_detail
 
   validates :name, presence: true
   validates :name, uniqueness: { case_sensitive: false }, allow_blank: true
