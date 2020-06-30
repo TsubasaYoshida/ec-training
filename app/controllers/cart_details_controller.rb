@@ -35,7 +35,7 @@ class CartDetailsController < ApplicationController
 
   def destroy
     @cart_detail.destroy
-    redirect_to cart_details_url, notice: "CartDetail was successfully destroyed."
+    redirect_to current_cart, notice: "CartDetail was successfully destroyed."
   end
 
   private

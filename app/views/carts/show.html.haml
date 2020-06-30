@@ -11,6 +11,7 @@
       = number_to_currency(cart_detail.product.price)
     .cart-detail__quantity
       数量: #{cart_detail.quantity}
+    = button_to '削除', cart_detail, method: :delete, class: 'cart-detail__delete-button'
 
 小計
 .cart-subtotal
