@@ -19,7 +19,7 @@ class CartDetailsController < ApplicationController
   def create
     @cart_detail = current_cart.cart_details.build(cart_detail_params)
     if @cart_detail.save
-      redirect_to current_cart, notice: "CartDetail was successfully created."
+      redirect_to cart_url, notice: "CartDetail was successfully created."
     else
       render 'products/show'
     end
@@ -35,7 +35,7 @@ class CartDetailsController < ApplicationController
 
   def destroy
     @cart_detail.destroy
-    redirect_to current_cart, notice: "CartDetail was successfully destroyed."
+    redirect_to cart_url, notice: "CartDetail was successfully destroyed."
   end
 
   private
