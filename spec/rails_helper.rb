@@ -66,4 +66,8 @@ RSpec.configure do |config|
 
   # FactoryBotの名前空間を省略できるようにする
   config.include FactoryBot::Syntax::Methods
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :headless_chrome
+  end
 end
