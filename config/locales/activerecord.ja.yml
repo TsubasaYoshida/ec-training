@@ -1,0 +1,5 @@
+ja:
+  activerecord:
+    attributes:
+      cart_detail:
+        quantity: 数量

@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    price { 1 }
+    id { 1 }
+    name { '商品1' }
+    price { 1000 }
   end
 end

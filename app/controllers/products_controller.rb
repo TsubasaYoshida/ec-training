@@ -7,7 +7,9 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @cart_detail = CartDetail.new
+  end
 
   def new
     @product = Product.new
