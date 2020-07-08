@@ -9,9 +9,12 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    cart = Cart.find_or_initialize_by(id: session[:cart_id])
+    cart.user = current_user
+    cart.save!
+  end
 
   # DELETE /resource/sign_out
   # def destroy
