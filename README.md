@@ -1,6 +1,9 @@
 # EC_TRAINING
 ECサイトを構築するトレーニングリポジトリ
 
+## 機能一覧
+https://docs.google.com/spreadsheets/d/1CAd-I6MtNfblOJpzwAwl4U5GFhA9BVrlS8U-RXZLc7Q/edit?usp=sharing
+
 ## 業務フロー
 WIP
 
