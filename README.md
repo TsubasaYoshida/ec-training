@@ -64,3 +64,6 @@ user_idカラムはNULLを許容する(未ログイン状態でもカート機�
 ### ユーザー情報テーブル(user_details)
 - first_name
 - last_name
+
+## ドキュメント
+https://drive.google.com/drive/folders/1I1iE5jcAq2VBzSInQO0f7KqA9bBRcGB_?usp=sharing
