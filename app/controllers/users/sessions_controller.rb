@@ -11,9 +11,17 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    cart = Cart.find_or_initialize_by(id: session[:cart_id])
-    cart.user = current_user
-    cart.save!
+    return unless Cart.exists?(session[:cart_id])
+
+    cart_from_session = Cart.find(session[:cart_id])
+    if current_user.cart
+      cart_from_session.cart_details.each do |cart_detail|
+        current_user.cart.cart_details << cart_detail
+      end
+    else
+      current_user.cart = cart_from_session
+    end
+    session[:cart_id] = nil
   end
 
   # DELETE /resource/sign_out
