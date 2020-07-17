@@ -18,6 +18,7 @@ class Users::SessionsController < Devise::SessionsController
       cart_from_session.cart_details.each do |cart_detail|
         current_user.cart.cart_details << cart_detail
       end
+      cart_from_session.destroy
     else
       current_user.cart = cart_from_session
     end
